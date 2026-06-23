@@ -1,0 +1,52 @@
+@use '../abstracts/abstracts' as abs;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-right: 50px;
+    .header__logo {
+        img {
+            max-width: 180px;
+        }
+    }
+    .header__nav {
+        display: flex;
+        align-items: center;
+        & ul {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            @include abs.reset-list();
+            a   {
+                text-decoration: none;
+                color: abs.$blue;
+                font-size: 14px;   
+            }  
+        }
+        .v__down {
+            position: relative;
+            top: 5px;
+            margin-left: 5px;
+        }
+    }
+    .login {
+        display: flex;
+        gap: 60px;
+        .search__shop {
+            li a img {
+                width: 25px;
+            }
+        }        
+        ul.search__shop, ul.sing {
+            display: flex;
+            align-items: center;
+            gap: 30px; 
+            @include abs.reset-list();
+        }
+        
+    }
+
+}

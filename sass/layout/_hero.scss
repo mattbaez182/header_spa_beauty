@@ -1,0 +1,115 @@
+@use '../abstracts/abstracts' as abs;
+
+
+.main__container {
+    display: flex;
+    justify-content: start;
+    position: relative;
+    .hero__content {
+        margin-top: 50px;
+        h1.title {
+            font-size: 48px;
+            font-weight: 700;
+            color: abs.$blue;
+            width: 600px;  
+            line-height: 55px;
+        }
+        p.subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            color: abs.$grey;
+            width: 600px;
+            margin-top: 25px;
+        }
+
+        .hero__numbers {
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+            margin-top: 80px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            width: 500px;
+            height: 230px;
+            .num {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                img {
+                    max-width: 75px;
+                    background-color: abs.$green;
+                    padding: 10px;
+                    border-radius: 50%;
+                }
+                h2.number {
+                    color: abs.$blue;
+                    font-size: 30px;
+                    font-weight: 500;
+                }
+                p {
+                    color: abs.$grey;
+                    font-size: 15px;
+                    font-weight: 400;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    // Img
+    .img__content { 
+        .woman {
+            max-width: 650px;
+            position: absolute;
+            right: 13%;
+            top: 2%;
+            z-index: -1;
+        }
+        // Cart
+        .glass__cart {
+            .cart__1 {
+               @include abs.cart-glass();
+               position: absolute;
+               bottom: 28%;
+               right: -3.5%;
+               img {
+                width: 25px;
+               }
+               p {
+                color: black;
+                font-size: 15px;
+                font-weight: 400
+               }
+               h3 {
+                color: abs.$blue;
+                font-size: 15px;
+                font-weight: 700;
+                margin-top: 6px;
+               }
+            }
+            .cart__2 {
+                @include abs.cart-glass();
+                position: absolute;
+                right: 5%;
+                top: 76%;
+                img {
+                width: 25px;
+               }
+               p {
+                color: black;
+                font-size: 15px;
+                font-weight: 400
+               }
+               h3 {
+                color: abs.$blue;
+                font-size: 15px;
+                font-weight: 700;
+                margin-top: 6px;
+               }
+            }
+        }
+    }
+
+}

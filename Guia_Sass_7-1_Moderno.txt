@@ -1,0 +1,82 @@
+Guía Base Sass Moderna (7-1 Architecture)
+
+# Mapa definitivo de tu proyecto
+
+sass/
+├── abstracts/
+│   ├── _variables.scss      → define cosas
+│   ├── _functions.scss      → define cosas
+│   ├── _mixins.scss         → define cosas
+│   ├── _placeholders.scss   → define cosas
+│   └── _abstracts.scss      → @forward
+
+├── base/
+│   ├── _animations.scss     → @use
+│   ├── _reset.scss          → @use
+│   ├── _typography.scss     → @use
+│   └── _base.scss           → @forward
+
+├── components/
+│   ├── _buttons.scss        → @use
+│   └── _components.scss     → @forward
+
+├── layout/
+│   ├── _footer.scss         → @use
+│   ├── _forms.scss          → @use
+│   ├── _grid.scss           → @use
+│   ├── _header.scss         → @use
+│   ├── _navbar.scss         → @use
+│   ├── _sidebar.scss        → @use
+│   └── _layout.scss         → @forward
+
+├── pages/
+│   ├── _home.scss           → @use
+│   └── _pages.scss          → @forward
+
+├── themes/
+│   ├── _default.scss        → @use
+│   └── _themes.scss         → @forward
+
+├── vendors/
+│   └── _vendors.scss        → caso especial
+
+├── _settings.scss           → @use
+
+└── app.scss                 → @use
+
+REGLA:
+- Si AGRUPA archivos → @forward
+- Si CONSUME variables, mixins o funciones → @use
+
+Ejemplo:
+
+abstracts/_abstracts.scss
+
+@forward 'variables';
+@forward 'functions';
+@forward 'mixins';
+@forward 'placeholders';
+
+Uso:
+
+@use '../abstracts/abstracts' as abs;
+
+abs.$variable
+abs.funcion()
+@include abs.mixin()
+
+app.scss:
+
+@use './abstracts/abstracts';
+@use './vendors/vendors';
+@use './base/base';
+@use './components/components';
+@use './layout/layout';
+@use './pages/pages';
+@use './themes/themes';
+@use './settings';
+
+Nota:
+@import url('https://fonts.googleapis.com/...');
+
+Es CSS nativo y puede seguir utilizándose.

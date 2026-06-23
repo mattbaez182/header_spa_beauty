@@ -1,0 +1,100 @@
+@use './variables' as var;
+
+@mixin breakpoint($bp) {
+  @if $bp == largedesktop {
+    @media (max-width: 1920px) and (min-width: 1441px) {
+      @content;
+    }
+  }
+  @if $bp == desktop {
+    @media (max-width: 1440px) and (min-width: 1025px) {
+      @content;
+    }
+  } @else if $bp == tablet {
+    @media (max-width: 1024px) and (min-width: 768px) {
+      @content;
+    }
+  } @else if $bp == tabletmobile {
+    @media (max-width: 1024px) and (min-width: 320px) {
+      @content;
+    }
+  } @else if $bp == mobileandrotate {
+    @media (max-width: 767px) and (min-width: 320px) {
+      @content;
+    }
+  } @else if $bp == mobilerotate {
+    @media (max-width: 767px) and (min-width: 479px) {
+      @content;
+    }
+  } @else if $bp == mobile {
+    @media (max-width: 480px) and (min-width: 320px) {
+      @content;
+    }
+  } @else if $bp == smallmobile {
+    @media (max-width: 650px) and (min-width: 568px) {
+      @content;
+    }
+  } @else if $bp == rotate {
+    @media (max-height: 550px) and (min-height: 0) {
+      @content;
+    }
+  }
+
+
+
+  // Usar este responsive
+  @if $bp == tablet {
+    @media (min-width: var.$bp-tablet) {
+      @content;
+    }
+  }
+
+  @if $bp == tablethorizontal {
+    @media (min-width: var.$bp-tablet-horizontal) {
+      @content;
+    }
+  }
+
+  @if $bp == desktop {
+    @media (min-width: var.$bp-desktop) {
+      @content;
+    }
+  }
+
+  @if $bp == desktopxl {
+    @media (min-width: var.$bp-desktop-xl) {
+      @content;
+    }
+  }
+}
+
+@mixin reset-list() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin button() {
+  display: inline-block;
+  padding: 10px 25px;
+  color: white;
+  background-color: var.$blue;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 400;
+  font-size: 14px;
+  &:hover {
+    background-color: #666CA3;
+  }
+}
+
+@mixin cart-glass() {
+  width: 350px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  background: #FFFFFF80;
+  backdrop-filter: blur(8px);
+  padding: 15px 25px;
+  border-radius: 12px;
+}
